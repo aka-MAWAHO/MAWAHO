@@ -24,7 +24,7 @@ export const getStaticProps:GetStaticProps = async (context:any) => {
   
   const res = await fetch('http://localhost:8080/product/' + name);
   const data:any = await res.json();
-
+  
   return {
     props: { product: data }
   }
