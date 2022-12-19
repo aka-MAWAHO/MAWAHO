@@ -4,14 +4,14 @@ import NavBar from '../navbar/NavBar'
 import axios from 'axios'
 import OneProduct from '../OneProduct';
 import Link  from 'next/link';
-const shop =({products}) => {
+const shop =({products}:any) => {
 const [allProducts,setAllProducts]=useState(products) 
 console.log(allProducts,'all');
-const [filters,setFilters]=useState([])
+const [filters,setFilters]:any[]=useState([])
 const [inptvalue,setInput]=useState('')
 const filterByCategories:any=(cate:any)=>{
 
- const filtred=  allProducts.filter(e=>e.categorie==cate)
+ const filtred=  allProducts.filter((e:any)=>e.categorie==cate)
 setAllProducts(filtred)
 let filter=filters
 
@@ -22,10 +22,8 @@ console.log(filters);
 
 const filterByGender:any=(gender:any)=>{
 let filter=filters
-
-
 setFilters([...filter,gender])
- const filtred=  allProducts.filter(e=>e.gender==gender)
+ const filtred=  allProducts.filter((e:any)=>e.gender==gender)
 setAllProducts(filtred)
 }
  const filterByBrand:any=(brand:any)=>{
@@ -33,7 +31,7 @@ let filter=filters
 
 
 setFilters([...filter,brand])
- const filtred=  allProducts.filter(e=>e.brand==brand)
+ const filtred=  allProducts.filter((e:any)=>e.brand==brand)
 setAllProducts(filtred)
 } 
  const filterByPrice:any=(min:any,max:any,price:any)=>{
@@ -41,19 +39,19 @@ let filter=filters
 
 
 setFilters([...filter,price])
- const filtred=  allProducts.filter(e=>e.price>min && e.price<max)
+ const filtred=  allProducts.filter((e:any)=>e.price>min && e.price<max)
 setAllProducts(filtred)
 } 
-const filterBySize:any=(size)=>{
+const filterBySize:any=(size:any)=>{
 let filter=filters
 
 
 setFilters([...filter,size])
- const filtred=  allProducts.filter(e=>e.size.includes(size))
+ const filtred=  allProducts.filter((e:any)=>e.size.includes(size))
 setAllProducts(filtred)
 } 
 const search=(input:any)=>{
-const filtred=  allProducts.filter(e=>e.name.toLowerCase().includes(input.toLowerCase()))
+const filtred=  allProducts.filter((e:any)=>e.name.toLowerCase().includes(input.toLowerCase()))
 setAllProducts(filtred)
 }
   return (
@@ -124,11 +122,11 @@ setAllProducts(filtred)
               <div className="shop__sidebar__accordion">
                 <div className="accordion" id="accordionExample">
                   <div className="card">
-                    <div className="card-heading">
+                    {/* <div className="card-heading"> */}
                       <a data-toggle="collapse" data-target="#collapseOne">
                         Categories
                       </a>
-                    </div>
+                    {/* </div> */}
                     <div
                       id="collapseOne"
                       className="collapse show"
@@ -137,16 +135,20 @@ setAllProducts(filtred)
                       <div className="card-body">
                         <div className="shop__sidebar__categories">
                           <ul className="nice-scroll">
-                            <li onClick={()=>{filterByGender('Men')}} className='btn display-1'>
+                            <li onClick={()=>{filterByGender('Men')
+                                                 }} className='btn display-1'>
                               Men 
                             </li>
                             <li onClick={()=>{filterByGender('Women')}}  className='btn display-1'>
                               Women 
                             </li>
-                            <li className='btn ' onClick={()=>{filterByCategories("Premature Baby")}}>
+                            <li className='btn ' onClick={()=>{filterByCategories("Premature Baby")
+                             
+                          }}>
                               Premature Baby 
                             </li>
-                            <li className='btn display-1' onClick={()=>{filterByCategories("Clothes")}}>
+                            <li className='btn display-1' onClick={()=>{filterByCategories("Clothes")}}
+                            >
                               Clothes 
                             </li>
                             <li className='btn display-1' onClick={()=>{filterByCategories("Shoes")}}>
@@ -336,13 +338,13 @@ setAllProducts(filtred)
             <div className="shop__product__option">
               <div className="row">
                 <div className="col-lg-6 col-md-6 col-sm-6">
-                  all filters
-                  <br />
+                  {/* all filters
+                  <br /> */}
 
-                  {filters.map(e=>{
+                  {/* {filters.map((e:any)=>{
                   console.log(e);
                   
-                  return(e+"    " )}    )}
+                  return(e+"    " )}    )} */}
                 </div>
               
               </div>
