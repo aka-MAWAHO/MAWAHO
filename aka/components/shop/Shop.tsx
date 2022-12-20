@@ -44,7 +44,7 @@ setFilters([...filter,price])
  const filtred=  allProducts.filter(e=>e.price>min && e.price<max)
 setAllProducts(filtred)
 } 
-const filterBySize:any=(size)=>{
+const filterBySize:any=(size:any)=>{
 let filter=filters
 
 
@@ -52,6 +52,15 @@ setFilters([...filter,size])
  const filtred=  allProducts.filter(e=>e.size.includes(size))
 setAllProducts(filtred)
 } 
+const filterByColor:any=(size:any)=>{
+  let filter=filters
+  
+  
+  setFilters([...filter,Color])
+   const filtred=  allProducts.filter(e=>e.Color.includes(size))
+  setAllProducts(filtred)
+  } 
+
 const search=(input:any)=>{
 const filtred=  allProducts.filter(e=>e.name.toLowerCase().includes(input.toLowerCase()))
 setAllProducts(filtred)
@@ -183,15 +192,19 @@ setAllProducts(filtred)
                             <li onClick={()=>{filterByBrand("Louis Vuitton")}} className='btn'>
                               Louis Vuitton
                             </li>
-                            <li onClick={()=>{filterByBrand("Chanel")}} className='btn'>
-                              Chanel
+                            <li onClick={()=>{filterByBrand("H&M")}} className='btn'>
+                            H&M
                             </li>
-                            <li onClick={()=>{filterByBrand("Hermes")}} className='btn'>
-                              Hermes
+                            <li onClick={()=>{filterByBrand("Zara")}} className='btn'>
+                            Zara
                             </li>
                             <li onClick={()=>{filterByBrand("Gucci")}} className='btn'>
                               Gucci
                             </li>
+                            <li onClick={()=>{filterByBrand("P&B")}} className='btn'>
+                            P&B
+                            </li>
+                        
                           </ul>
                         </div>
                       </div>
@@ -247,38 +260,38 @@ setAllProducts(filtred)
                     >
                       <div className="card-body">
                         <div className="shop__sidebar__size">
-                          <label htmlFor="xs">
-                            xs
-                            <input type="radio" id="xs" />
-                          </label>
-                          <label htmlFor="sm">
-                            s
-                            <input type="radio" id="sm" />
-                          </label>
-                          <label htmlFor="md">
-                            m
-                            <input type="radio" id="md" />
-                          </label>
-                          <label htmlFor="xl">
-                            xl
-                            <input type="radio" id="xl" />
-                          </label>
-                          <label htmlFor="2xl">
-                            2xl
-                            <input type="radio" id="2xl" />
-                          </label>
-                          <label htmlFor="xxl">
-                            xxl
-                            <input type="radio" id="xxl" />
-                          </label>
-                          <label htmlFor="3xl">
-                            3xl
-                            <input type="radio" id="3xl" />
-                          </label>
-                          <label htmlFor="4xl">
-                            4xl
-                            <input type="radio" id="4xl" />
-                          </label>
+                        <li onClick={()=>{filterBySize('XS')}} className='btn display-1'>
+                            XS
+                            </li>
+                            <li onClick={()=>{filterBySize('S')}}  className='btn display-1'>
+                             S
+                            </li>
+                            <li className='btn ' onClick={()=>{filterBySize("M")}}>
+                            M
+                            </li>
+                            <li className='btn display-1' onClick={()=>{filterBySize("L")}}>
+                            L
+                            </li>
+                            <li className='btn display-1' onClick={()=>{filterBySize("XL")}}>
+                            XL
+                            </li>
+                          
+                            <li className='btn display-1' onClick={()=>{filterBySize("6 YEARS (116 CM)")}}>
+                            6 YEARS 
+                            </li>
+                            <li className='btn display-1' onClick={()=>{filterBySize("9-10 YEARS (140 CM)")}}>
+                            9-10 YEARS 
+                            </li>
+                           
+                            
+                  
+    
+                           
+                           
+
+                          
+                          
+  
                         </div>
                       </div>
                     </div>
@@ -296,9 +309,11 @@ setAllProducts(filtred)
                     >
                       <div className="card-body">
                         <div className="shop__sidebar__color">
-                          <label className="c-1" htmlFor="sp-1">
+                        <label className="c-1" htmlFor="sp-1">
                             <input type="radio" id="sp-1" />
                           </label>
+                            
+   
                           <label className="c-2" htmlFor="sp-2">
                             <input type="radio" id="sp-2" />
                           </label>

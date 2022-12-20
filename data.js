@@ -190,7 +190,7 @@ const data = [
       "Slim fit jeans. Five pockets. Faded effect. Front zip fly and button fastening.",
     "price": 120,
     "color": ["Blue","Black"],
-    "size": ["S", "M", "L"],
+    "size": ["S", "M", "L",],
     "gender": "Men",
     "categorie": "Clothes",
 
@@ -346,7 +346,7 @@ const data = [
     "gender": "Women",
     "categorie": "accessories",
 
-    "brand": "Guicci",
+    "brand": "Gucci",
     "closeView":
       "https://res.cloudinary.com/dcvibsnc9/image/upload/v1671105211/6090910021_2_1_1-removebg-preview_tf46cv.png",
     "fullView":
@@ -509,5 +509,6 @@ const data = [
       "https://res.cloudinary.com/dcvibsnc9/image/upload/v1671110678/3500910107_6_2_1-removebg-preview_d7pl62.png",
 
   },
+ 
 
 ];
