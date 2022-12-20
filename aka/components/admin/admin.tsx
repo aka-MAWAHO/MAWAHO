@@ -1,7 +1,42 @@
-import React from 'react'
-
+import React,{useState} from 'react'
+import axios from 'axios';
 const admin = ({products}:any) => {
   console.log(products);
+
+  const [name,setName]=useState("")
+  
+  const [price,setPrice]=useState(0)
+  const [description,setDescription]=useState("")
+  const [categorie,setCategories]=useState("")
+  const [size,setSize]=useState("")
+  const [brand,setBrand]=useState("")
+  const [gender,setGender]=useState("")
+console.log(gender);
+
+
+  const Add=(add:any) =>{
+    axios.post(`http://localhost:8080/product/add`,add)
+  }
+
+
+
+  const[file,setFile]=useState(null)
+  const [withoutModel,setImagee]=useState("")
+  const uploadd= ()=>{
+  const form = new FormData()
+    form.append('file',file)
+    form.append("upload_preset","abderahimt")
+    form.append("cloud_name","dqz0n291c")
+    fetch(" https://api.cloudinary.com/v1_1/dqz0n291c/image/upload ",{
+    method:"post",
+    body:form
+    })
+    .then((res)=>res.json())
+    .then((res)=>{setImagee(res.url)
+     console.log(res.url)})
+    .catch((err)=>{console.log(err);})
+  }
+   
 
   return (
     <>
@@ -14,24 +49,30 @@ const admin = ({products}:any) => {
             <div className="col-md-8">
               <div className="card mb-4">
                
-          {products.map((e:any) => { return( 
+          {products.map((e:any  ,i : any) => { return( 
               
             <div className="card-body" >
                   {/* Single item */}
-                  <div className="card-header py-3">
+                  <div className="card-header py-3 text-center">
+                      PRODUCT {i+1}
                   {/* <h5 className="mb-0"><button onClick={()=>{axios.delete(`http://localhost:4000/api/cart/${e._id}`); window.location.reload()}}>  ✖️</button></h5> */}
                 </div>
                   <div className="row">
                     <div className="col-lg-3 col-md-12 mb-4 mb-lg-0">
                       {/* Image */}
                       <div 
-                        className="bg-image hover-overlay hover-zoom ripple rounded"
+                        className="bg-image hover-overlay hover-zoom "
                         data-mdb-ripple-color="light"
                       ><span className="close ">{" "}</span>
+                      <br></br>
+                      <br></br>
+                      <br></br>
+                      
+                      
                         <img
                           src={e.withoutModel
                           }
-                          className="w-100"
+                          className="w-100 "
                         />
                         <a href="#!">
                           <div
@@ -46,13 +87,15 @@ const admin = ({products}:any) => {
                     </div>
                     <div className="col-lg-5 col-md-6 mb-4 mb-lg-0">
                       {/* Data */}
+                      <br></br>
                       <p>
-                        <strong>{e.name}</strong>
+                       
+                        <strong className="form-control rounded bg-white"><b>{e.name}</b></strong>
                       </p>
-                      <p>{e.description}</p>
+                      <p className="form-control rounded bg-white">{e.description}</p>
                 
-                  <p>{e.gender}</p>
-                      <div>{e.size}</div>
+                  <p className="form-control rounded bg-white">{e.gender}</p>
+                      <div className="form-control rounded bg-white">{e.size}</div>
 
                       {/* Data */}
                     </div>
@@ -72,7 +115,19 @@ const admin = ({products}:any) => {
                         <div >
                         <button
                     type="button"
-                    className="btn  btn-lg btn-outline-danger"
+                    className="btn  btn-sm btn-outline-danger"
+                    onClick={()=>{console.log("hello");
+      
+
+      axios.delete(`http://localhost:8080/product/${e._id}`)
+      .then(res=>axios.get(`http://localhost:8080/product/getAll`))
+ 
+      window.location.reload()
+
+      
+
+}
+}
                   >
                   DELETE
                   </button>
@@ -81,11 +136,12 @@ const admin = ({products}:any) => {
                   <div>
                   <button
                     type="button"
-                    className="btn pm1 btn-lg btn-outline-success"
+                    className="btn pm1 btn-sm btn-outline-success"
                   >
                     UPDATE
                   </button>
                   </div>
+                  
                       </p>
                       {/* Price */}
                     </div>
@@ -105,23 +161,71 @@ const admin = ({products}:any) => {
                   <ul className="list-group list-group-flush">
                     <li className=" list-group-item d-flex justify-content-between align-items-center border-0  justify-content-center">
                       Name 
-                      <input type="text" />
-                      <span></span>
+                     
+                      <span> <input type="text" onChange= {(event)=>setName(event.target.value)}/></span>
                     </li>
                     <li className=" list-group-item d-flex justify-content-between align-items-center border-0  justify-content-center">
                       Price
-                      <input type="text"  />
-                      <span>  </span>
+                      
+                      <span> <input type="text" onChange= {(event)=>setPrice(event.target.value)} /> </span>
                     </li>
                     <li className="list-group-item d-flex justify-content-between align-items-center border-0  justify-content-center">
-                      Products
-                      <input type="text" />
-                      <span> </span>
+                    description 
+                      
+                      <span><input type="text" onChange= {(event)=>setDescription(event.target.value)}/> </span>
+                    </li>
+                    
+                    <li className="list-group-item d-flex justify-content-between align-items-center border-0  justify-content-center">
+                      Size
+                      
+                      <span> <input type="text" onChange= {(event)=>setSize(event.target.value)} /></span>
                     </li>
                     <li className="list-group-item d-flex justify-content-between align-items-center border-0  justify-content-center">
-                      Products
-                      <input type="text" />
-                      <span> </span>
+                      brand
+                     
+                      <span>  <input type="text"onChange= {(event)=>setBrand(event.target.value)} /></span>
+                    </li>
+                    <li className="list-group-item d-flex justify-content-between align-items-center border-0  justify-content-center">
+                    categorie
+                      
+                      <span> <input type="text" onChange= {(event)=>setCategories(event.target.value)}/></span>
+                    </li>
+                    <li className="list-group-item d-flex justify-content-between align-items-center border-0  justify-content-center">
+                    gender
+                      
+                      <span><select  name="rental-option" className="list-group-item d-flex justify-content-between align-items-center border-0  justify-content-center" onChange={(event)=> setGender(event.target.value)}>
+  <option className="addd" value="test"   >-----</option>
+
+  <option value="Women"> Women </option>
+  <option value="Kids"> Kids </option>
+  <option value="Men"> Men </option>
+  <option value="Baby"> Baby </option>
+  
+
+</select>
+ </span>
+                    </li>
+                    {/* <li className="list-group-item d-flex justify-content-between align-items-center border-0  justify-content-center">
+                    type
+                      
+                      <span> <input type="text"onChange= {(event)=>setType(event.target.value)} /></span>
+                    </li> */}
+                    <li className="list-group-item d-flex justify-content-between align-items-center border-0  justify-content-center">
+                    image
+                      
+                      <span > <input type="file" onChange={(event)=>setFile(event.target.files[0])}  className="justify-content-center"/>
+                      <button
+                    type="button"
+                    className="btn  btn-sm btn-secondary col-md-4 text-center"
+                    onClick={()=>{
+               
+                      uploadd();
+                        
+                         }}
+                  >
+                    upload
+                  </button></span>
+                      
                     </li>
                     
                     <br></br>
@@ -129,13 +233,21 @@ const admin = ({products}:any) => {
                   <button
                     type="button"
                     className="btn btn-primary btn-lg btn-dark col-md-12 text-center"
+                    onClick={()=>{
+               
+                        
+                         Add({withoutModel,name,price,description,categorie,size,brand,gender}) ;
+                      window.location.reload();}}
                   >
                     ADD
                   </button>
                 </div>
               </div>
+              
             </div>
+            
           </div>
+          
         </div>
       </section>
 
