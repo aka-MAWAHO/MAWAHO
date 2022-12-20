@@ -50,12 +50,12 @@ setFilters([...filter,size])
  const filtred=  allProducts.filter((e:any)=>e.size.includes(size))
 setAllProducts(filtred)
 } 
-const filterByColor:any=(size:any)=>{
+const filterByColor:any=(color:any)=>{
   let filter=filters
   
   
-  setFilters([...filter,Color])
-   const filtred=  allProducts.filter(e=>e.Color.includes(size))
+  setFilters([...filter,color])
+   const filtred=  allProducts.filter(e=>e.color.includes(color))
   setAllProducts(filtred)
   } 
 
@@ -311,35 +311,44 @@ setAllProducts(filtred)
                     >
                       <div className="card-body">
                         <div className="shop__sidebar__color">
+                        <li className='btn display-1' onClick={()=>{filterByColor("Black")}}>
                         <label className="c-1" htmlFor="sp-1">
-                            <input type="radio" id="sp-1" />
+                          <input type="radio" id ="sp-1" />
                           </label>
-                            
-   
+                        </li>   
+                        <li className='btn display-1' onClick={()=>{filterByColor("Blue")}}>
                           <label className="c-2" htmlFor="sp-2">
                             <input type="radio" id="sp-2" />
-                          </label>
+                          </label> </li>
+                          <li className='btn display-1' onClick={()=>{filterByColor("Yellow")}}>
                           <label className="c-3" htmlFor="sp-3">
                             <input type="radio" id="sp-3" />
-                          </label>
+                          </label> </li>
+                          <li className='btn display-1' onClick={()=>{filterByColor("Grey")}}>
                           <label className="c-4" htmlFor="sp-4">
                             <input type="radio" id="sp-4" />
-                          </label>
+                          </label> </li>
+                          <li className='btn display-1' onClick={()=>{filterByColor("Beige")}}>
                           <label className="c-5" htmlFor="sp-5">
                             <input type="radio" id="sp-5" />
-                          </label>
+                          </label></li>
+
+                          <li className='btn display-1' onClick={()=>{filterByColor("Pink")}}>
                           <label className="c-6" htmlFor="sp-6">
                             <input type="radio" id="sp-6" />
-                          </label>
+                          </label> </li>
+                          <li className='btn display-1' onClick={()=>{filterByColor("Beige")}}>
                           <label className="c-7" htmlFor="sp-7">
                             <input type="radio" id="sp-7" />
-                          </label>
+                          </label></li>
+                          <li className="btn display-1" onClick={()=>{filterByColor("Red")}}>
                           <label className="c-8" htmlFor="sp-8">
                             <input type="radio" id="sp-8" />
-                          </label>
+                          </label> </li>
+                          <li className='btn display-1' onClick={()=>{filterByColor("White")}}>
                           <label className="c-9" htmlFor="sp-9">
                             <input type="radio" id="sp-9" />
-                          </label>
+                          </label> </li>
                         </div>
                       </div>
                     </div>
