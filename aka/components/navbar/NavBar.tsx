@@ -21,7 +21,9 @@ const NavBar = () => {
       <nav className="navbar navbar-expand-lg navbar-dark bg-body fixed-top ">
         {/* <img src='https://res.cloudinary.com/dn9qfvg2p/image/upload/c_scale,w_70/v1671096775/lougou-removebg-preview_j5u6df.png' /> */}
         <div className="container-fluid">
+
           <a className="navbar-brand text-dark" href="/home"> <b> MAWAHO</b></a>
+
           <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span className="navbar-toggler-icon"></span> </button>
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
