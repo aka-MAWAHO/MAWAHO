@@ -55,7 +55,7 @@ const filterByColor:any=(size:any)=>{
   
   
   setFilters([...filter,Color])
-   const filtred=  allProducts.filter(e=>e.Color.includes(size))
+   const filtred=  allProducts.filter((e:any)=>e.Color.includes(size))
   setAllProducts(filtred)
   } 
 
@@ -172,8 +172,8 @@ setAllProducts(filtred)
                           
                           </ul>
                         </div>
-                  <br />
-                  <br />
+                 
+             
                       </div>
                     </div>
                   </div>
@@ -262,9 +262,9 @@ setAllProducts(filtred)
                     >
                       <div className="card-body">
                         <div className="shop__sidebar__size">
-                        <li onClick={()=>{filterBySize('XS')}} className='btn display-1'>
+                        {/* <li onClick={()=>{filterBySize('XS')}} className='btn display-1'>
                             XS
-                            </li>
+                            </li> */}
                             <li onClick={()=>{filterBySize('S')}}  className='btn display-1'>
                              S
                             </li>

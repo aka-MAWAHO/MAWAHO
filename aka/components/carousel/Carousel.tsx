@@ -1,32 +1,46 @@
-// import Carousel from 'react-bootstrap/Carousel';
-//  import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import React from 'react'
-import SimpleImageSlider from "react-simple-image-slider";
 
-const images = [
-
-  {
-    url:
-      "https://res.cloudinary.com/drd0uckic/image/upload/v1671444987/xlj97wcbeqfvw13q4dae.jpg"
-  },
-  { url: "https://res.cloudinary.com/drd0uckic/image/upload/v1671444987/lwdefla8vlzwa7jvqpjx.jpg" },
-  { url: "https://res.cloudinary.com/drd0uckic/image/upload/v1671444987/scw0kuurwpnthciozcst.jpg" }
-];
 function Car() {
   return (
-    <div className="Appp">
 
-      <SimpleImageSlider
-        width={1519}
-        height={500}
-        images={images}
-        showBullets={true}
-        showNavs={true}
-        loop={true}
-        autoPlay={true}
-      />
-      <br></br>
+<div
+  id="carouselVideoExample"
+  className="carousel slide carousel-fade"
+  data-mdb-ride="carousel"
+>
+ 
+  <div className="carousel-inner">
+    {/* Single item */}
+    <div className="carousel-item active">
+      <video className="img-fluid" autoPlay={true}  >
+        <source
+          src="https://res.cloudinary.com/dn9qfvg2p/video/upload/c_scale,w_2200/v1671547320/H_M_Autumn_Collection_2012_-_The_Fashion_Family_qtaomv.mp4"
+          type="video/mp4"
+        />
+      </video>
     </div>
+  </div>
+
+  {/* Controls */}
+  <button
+    className="carousel-control-prev"
+    type="button"
+    data-mdb-target="#carouselVideoExample"
+    data-mdb-slide="prev"
+  >
+    <span className="carousel-control-prev-icon" aria-hidden="true" />
+    <span className="visually-hidden">Previous</span>
+  </button>
+  <button
+    className="carousel-control-next"
+    type="button"
+    data-mdb-target="#carouselVideoExample"
+    data-mdb-slide="next"
+  >
+    <span className="carousel-control-next-icon" aria-hidden="true" />
+    <span className="visually-hidden" >Next</span>
+  </button>
+</div>
 
   );
 }
