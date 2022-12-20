@@ -88,63 +88,7 @@ const Home = ({}) => {
     </div>
   </section>
   {/* Banner Section End */}
-  {/* Product Section Begin */}
-  <section className="product spad">
-    <div className="container">
-      <div className="row">
-        <div className="col-lg-12">
-          <ul className="filter__controls">
-            <li className="active" data-filter="*">
-              Best Sellers
-            </li>
-            <li data-filter=".new-arrivals">New Arrivals</li>
-            <li data-filter=".hot-sales">Hot Sales</li>
-          </ul>
-        </div>
-      </div>
-      <div className="row product__filter">
-        <div className="col-lg-3 col-md-6 col-sm-6 col-md-6 col-sm-6 mix new-arrivals">
-          <div className="product__item">
-            <div
-              className="product__item__pic set-bg"
-              data-setbg="https://res.cloudinary.com/dugewmeeh/image/upload/v1670924745/aka/shoping%20deta/thumb-3_jnkhnd.png"
-            >
-              <span className="label">New</span>
-             
-            </div>
-            <div className="product__item__text">
-              <h6>Piqué Biker Jacket</h6>
-              <a href="#" className="add-cart">
-                + Add To Cart
-              </a>
-              <div className="rating">
-                <i className="fa fa-star-o" />
-                <i className="fa fa-star-o" />
-                <i className="fa fa-star-o" />
-                <i className="fa fa-star-o" />
-                <i className="fa fa-star-o" />
-              </div>
-              <h5>$67.24</h5>
-              <div className="product__color__select">
-                <label htmlFor="pc-1">
-                  <input type="radio" id="pc-1" />
-                </label>
-                <label className="active black" htmlFor="pc-2">
-                  <input type="radio" id="pc-2" />
-                </label>
-                <label className="grey" htmlFor="pc-3">
-                  <input type="radio" id="pc-3" />
-                </label>
-              </div>
-            </div>
-          </div>
-        </div>
-        
-        </div> 
-    </div>
-  </section>
-  {/* Product Section End */}
- 
+  
   {/* Instagram Section Begin */}
   <section className="instagram spad">
     <div className="container">
