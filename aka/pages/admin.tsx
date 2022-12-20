@@ -5,7 +5,7 @@ import { GetStaticProps,NextPage } from 'next'
 import axios from 'axios';
 export const getStaticProps: GetStaticProps = async (context) => {
   const res = await axios.get("http://localhost:8080/product/getall");
-  const  results : any = await res.data;
+  const  results : any = await res.data.reverse();
 
 
  
