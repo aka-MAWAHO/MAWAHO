@@ -56,7 +56,6 @@ const filterByColor:any=(color:any)=>{
   
   setFilters([...filter,color])
    const filtred=  allProducts.filter((e:any)=>e.color.includes(color))
-
   setAllProducts(filtred)
   } 
 
@@ -287,13 +286,6 @@ setAllProducts(filtred)
                             </li>
                            
                             
-                  
-    
-                           
-                           
-
-                          
-                          
   
                         </div>
                       </div>

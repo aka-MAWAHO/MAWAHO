@@ -16,6 +16,9 @@ const Footer = () => {
               The customer is at the heart of our unique business model, which
               includes design.
             </p>
+            <p> <img src="https://vectorified.com/images/font-awesome-map-icon-23.png" alt="Tunisia" width="25" height="25" /> Country : Tunisia</p>
+            <p><img src="https://vectorified.com/images/email-icon-square-1.png" alt="Email" width="25" height="25" />Email :Mawaho@gmail.com</p>
+            <p>  <img src="https://www.shutterstock.com/image-vector/phone-icon-trendy-flat-style-600w-1189157305.jpg" alt="Email" width="25" height="25" /> Phone Number :+216 98505112</p>
             <a href="#">
               <img src="/aka/img/payment.png" alt="" />
             </a>
