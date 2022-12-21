@@ -4,20 +4,24 @@ const admin = ({products}:any) => {
   console.log(products);
 
   const [name,setName]=useState("")
-  
+  const[card,setCard]=useState('')
   const [price,setPrice]=useState(0)
   const [description,setDescription]=useState("")
   const [categorie,setCategories]=useState("")
   const [size,setSize]=useState("")
   const [brand,setBrand]=useState("")
   const [gender,setGender]=useState("")
+
 console.log(gender);
 
 
   const Add=(add:any) =>{
     axios.post(`http://localhost:8080/product/add`,add)
   }
-
+  const update=() =>{
+    axios.put(`http://localhost:8080/product/${card._id}`,{name,price,categorie,description,withoutModel,brand,size,gender})
+    .then(res=>axios.get(`http://localhost:8080/product/getAll`))
+  }
 
 
   const[file,setFile]=useState(null)
@@ -36,7 +40,120 @@ console.log(gender);
      console.log(res.url)})
     .catch((err)=>{console.log(err);})
   }
-   
+  
+  const [show,setShow]=useState(false)
+  // const[card,setCard]=useState('')
+  console.log(card,'hello');
+  console.log(price,'fffffff');
+  
+const toggle=()=>{
+let she=!show
+setShow(she)}
+if (show===true) {
+  return(
+    
+    
+    
+    
+    <div className=" d-flex justify-content-center ">
+      
+    <div className="card col-md-6 ">
+    <br></br>
+    
+                <div className="card-header py-3 ">
+                  <h3 className="mb-0 text-center">UPDATE Product</h3>
+                </div>
+                <div className="card-body">
+                  <ul className="list-group list-group-flush">
+                    <li className=" list-group-item d-flex justify-content-between align-items-center border-0  justify-content-center">
+                      Name 
+                     
+                      <span> <input type="text" onChange= {(event)=>setName(event.target.value)} defaultValue={card.name}/></span>
+                    </li>
+                    <li className=" list-group-item d-flex justify-content-between align-items-center border-0  justify-content-center">
+                      Price
+                      
+                      <span> <input type="text" onChange= {(event)=>setPrice(event.target.value)} defaultValue={card.price}/> </span>
+                    </li>
+                    <li className="list-group-item d-flex justify-content-between align-items-center border-0  justify-content-center">
+                    description 
+                      
+                      <span><input type="text" onChange= {(event)=>setDescription(event.target.value)}  defaultValue={card.description}/> </span>
+                    </li>
+                    
+                    <li className="list-group-item d-flex justify-content-between align-items-center border-0  justify-content-center">
+                      Size
+                      
+                      <span> <input type="text" onChange= {(event)=>setSize(event.target.value)} defaultValue={card.size} /></span>
+                    </li>
+                    <li className="list-group-item d-flex justify-content-between align-items-center border-0  justify-content-center">
+                      brand
+                     
+                      <span>  <input type="text"onChange= {(event)=>setBrand(event.target.value)}  defaultValue={card.brand}/></span>
+                    </li>
+                    <li className="list-group-item d-flex justify-content-between align-items-center border-0  justify-content-center">
+                    categorie
+                      
+                      <span> <input type="text" onChange= {(event)=>setCategories(event.target.value)}  defaultValue={card.categorie}/></span>
+                    </li>
+                    <li className="list-group-item d-flex justify-content-between align-items-center border-0  justify-content-center">
+                    gender
+                      
+                      <span><select  name="rental-option" className="list-group-item d-flex justify-content-between align-items-center border-0  justify-content-center" onChange={(event)=> setGender(event.target.value)}  defaultValue={card.gender}>
+  <option className="addd" value="test"   >-----</option>
+
+  <option value="Women"> Women </option>
+  <option value="Kids"> Kids </option>
+  <option value="Men"> Men </option>
+  <option value="Baby"> Baby </option>
+  
+
+</select>
+ </span>
+                    </li>
+                    {/* <li className="list-group-item d-flex justify-content-between align-items-center border-0  justify-content-center">
+                    type
+                      
+                      <span> <input type="text"onChange= {(event)=>setType(event.target.value)} /></span>
+                    </li> */}
+                    <li className="list-group-item d-flex justify-content-between align-items-center border-0  justify-content-center">
+                    image
+                      
+                      <span > <input type="file" onChange={(event)=>setFile(event.target.files[0])}  className="justify-content-center"  />
+                      <button
+                    type="button"
+                    className="btn  btn-sm btn-secondary col-md-4 text-center"
+                    onClick={()=>{
+               
+                      uploadd();
+                      
+                        
+                         }}
+                  >
+                    upload
+                  </button></span>
+                      
+                    </li>
+                    
+                    <br></br>
+                  </ul>
+                  <button
+                    type="button"
+                    className="btn btn-primary btn-lg btn-dark col-md-12 text-center"
+                    onClick={()=>{update()
+                      setTimeout(() => {window.location.reload()},3000);
+                      
+                      
+                      ;}}
+                  >
+                    UPDATE 
+                  </button>
+                </div>
+              </div></div>
+  )
+}
+else {
+
 
   return (
     <>
@@ -121,9 +238,9 @@ console.log(gender);
 
       axios.delete(`http://localhost:8080/product/${e._id}`)
       .then(res=>axios.get(`http://localhost:8080/product/getAll`))
+      setTimeout(() => {window.location.reload()},1000)
  
-      window.location.reload()
-
+      
       
 
 }
@@ -137,6 +254,8 @@ console.log(gender);
                   <button
                     type="button"
                     className="btn pm1 btn-sm btn-outline-success"
+                    onClick={()=>{toggle()
+                      setCard(e)}}
                   >
                     UPDATE
                   </button>
@@ -237,11 +356,11 @@ console.log(gender);
                
                         
                          Add({withoutModel,name,price,description,categorie,size,brand,gender}) ;
-                      window.location.reload();}}
+                       setTimeout(() => {window.location.reload()},500);}}
                   >
                     ADD
-                  </button>
-                </div>
+                  </button>  
+                </div>1000
               </div>
               
             </div>
@@ -254,6 +373,6 @@ console.log(gender);
   </>
   
   )
-}
+}}
 
 export default admin
