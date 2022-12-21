@@ -1,0 +1,18 @@
+.about{
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-top: 20px;
+    font-size: 20px;
+    display: flex;
+    flex-wrap:wrap;
+    display:grid ;
+    letter-spacing: normal;
+    word-spacing: normal;
+
+    background-color: transparent;
+    border: 1px solid transparent;
+    background-color: rgb(188, 185, 160,0.4)  ;
+    border-radius: 10px;
+    padding: 20px 40px 20px 40px;
+    height: auto;
+}

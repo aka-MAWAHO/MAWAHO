@@ -20,6 +20,7 @@ const cart :NextPage<{ cart: any }> = ({ cart }) => {
     
     return accumulator + currentValue.price;
   }, 0))
+  const [discountedPrice, setDiscountedPrice] = useState(total * (1 - 0.25));
 
   return (
    <>
@@ -118,11 +119,11 @@ const cart :NextPage<{ cart: any }> = ({ cart }) => {
           <div className="cart__total">
             <h6>Cart total</h6>
             <ul>
+             
               <li>
-                Subtotal <span>$ 169.50</span>
+                Total : <span>${total}</span>
               </li>
-              <li>
-                Total <span>${total}</span>
+              <li> Discounted Price 25%: <span>  ${discountedPrice} </span>
               </li>
             </ul>
             <a href="checkOut" className="primary-btn">
