@@ -18,17 +18,17 @@ const cart: NextPage<{ cart: any }> = ({ cart }) => {
 
     return accumulator + currentValue.price;
   }, 0))
-  const [discountedPrice, setDiscountedPrice] = useState(total * (1 - 0.25));
- 
+  const [discountedPrice, setDiscountedPrice] = useState(total * (1 - 0.25).toFixed(2));
+
   const [promotion, setPromotion] = useState('')
-  const [promo,setPromo]=useState(0)
-  const pro=()=>{
-      if(promotion==="mimi"){
-     setPromo(Math.floor(discountedPrice*0.95))
-      }
-      else{alert("Invalid code")} 
+  const [promo, setPromo] = useState(0)
+  const pro = () => {
+    if (promotion === "mimi") {
+      setPromo(Math.floor(discountedPrice * 0.95))
     }
-  
+    else { alert("Invalid code") }
+  }
+
   return (
     <>
       <meta charSet="UTF-8" />
@@ -77,8 +77,7 @@ const cart: NextPage<{ cart: any }> = ({ cart }) => {
                   <thead>
                     <tr>
                       <th className='col-'>Product</th>
-                     <br></br>
-                      <th>Price</th>
+                      <br></br>
                       <th />
                     </tr>
                   </thead>
@@ -89,7 +88,7 @@ const cart: NextPage<{ cart: any }> = ({ cart }) => {
                         <div>
                           <button type="button" className="btn-close" aria-label="Close"
                             onClick={() => {
-                        
+
                               axios.delete(`http://localhost:8080/cart/${e._id}`)
                               setTimeout(() => { window.location.reload() }, 500)
                             }}></button>
@@ -135,7 +134,7 @@ const cart: NextPage<{ cart: any }> = ({ cart }) => {
                 <form action="#">
                   <input type="text" placeholder="Coupon code" onChange={(event) => setPromotion(event.target.value)} />
                   <button type="submit"
-                  onClick={()=>{pro()}}
+                    onClick={() => { pro() }}
                   >Apply</button>
                 </form>
               </div>
@@ -144,17 +143,17 @@ const cart: NextPage<{ cart: any }> = ({ cart }) => {
                 <ul>
 
                   <li>
-                    Total : <span>${total}</span>
+                    Total : <span>{total} Dt</span>
                   </li>
-                  <li> Discounted Price 25%: <span>  ${discountedPrice} </span>
+                  <li> Discounted Price 25%: <span>{discountedPrice} Dt </span>
                   </li>
-                  <li> Promotion Discount : <span>  ${promo} </span>
+                  <li> Promotion Discount : <span>{promo} Dt </span>
                   </li>
                 </ul>
                 <a href="checkOut" className="primary-btn">
                   Proceed to checkout
                 </a>
-                
+
               </div>
             </div>
           </div>
