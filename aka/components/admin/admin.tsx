@@ -4,7 +4,7 @@ const admin = ({products}:any) => {
   console.log(products);
 
   const [name,setName]=useState("")
-  const[card,setCard]=useState('')
+  const [card,setCard]=useState('')
   const [price,setPrice]=useState(0)
   const [description,setDescription]=useState("")
   const [categorie,setCategories]=useState("")
