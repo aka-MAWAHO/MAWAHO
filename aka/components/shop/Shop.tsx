@@ -172,8 +172,8 @@ setAllProducts(filtred)
                           
                           </ul>
                         </div>
-                  <br />
-                  <br />
+                 
+             
                       </div>
                     </div>
                   </div>
@@ -262,9 +262,9 @@ setAllProducts(filtred)
                     >
                       <div className="card-body">
                         <div className="shop__sidebar__size">
-                        <li onClick={()=>{filterBySize('XS')}} className='btn display-1'>
+                        {/* <li onClick={()=>{filterBySize('XS')}} className='btn display-1'>
                             XS
-                            </li>
+                            </li> */}
                             <li onClick={()=>{filterBySize('S')}}  className='btn display-1'>
                              S
                             </li>
