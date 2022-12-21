@@ -1,9 +1,23 @@
-import React from 'react'
+import React, { useState,useEffect } from 'react'
 import Link from 'next/link'
 import axios from 'axios'
 const NavBar = () => {
+     const [nn,setN]=useState([])
+      useEffect(() => {
+        axios.get("http://localhost:8080/cart/getAll").then(res => {
+        console.log(res.data,'merue');
+          
+        setN(res.data)
+          
+        })
+      }, [])
+      const n=nn.length
+ console.log(nn);
+ 
+ 
   return (
 
+ 
     <div className=''>
 
       <div className="col-lg-6 col-md-5">
@@ -41,9 +55,13 @@ const NavBar = () => {
 
             </ul>
 </div>
+<div className='position-absolute  end-0 col-1'>
+  <a className='badge text-danger'>
+  <b>{n}</b></a></div>
             <div className='position-absolute top-0 end-0'>
               <button className="btn  text-dark" type="submit" title="SHOP LIST" onClick={() => { location.href = "/cart" }}>
-                <img src='https://res.cloudinary.com/dn9qfvg2p/image/upload/c_scale,w_33/v1671035218/bag_ppahl3.png' />
+                <img src='https://res.cloudinary.com/dn9qfvg2p/image/upload/c_scale,w_39/v1671035218/bag_ppahl3.png' />
+                
               </button>
               <button className="btn  text-dark" type="submit" title="LOGIN">
                 <img src='https://res.cloudinary.com/dn9qfvg2p/image/upload/c_scale,w_33/v1671035073/user_xzrvuk.png' />

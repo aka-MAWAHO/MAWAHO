@@ -30,7 +30,9 @@ axios.post('http://localhost:8080/cart/add',body).then(res=>{
                       quantity:1,
                     price:e.price,
                   image:e.withoutModel})
-                    }} className="btn add-cart">
+                      window.location.reload()  }}
+                 
+                    className="btn add-cart">
                       + Add To Cart
                     </a>
                    
