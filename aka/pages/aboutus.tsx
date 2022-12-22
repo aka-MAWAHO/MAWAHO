@@ -22,19 +22,19 @@ function aboutus() {
     <div className="icons">
       <i className="fas fa-map-marker-alt" />
       <h3>address</h3>
-      <p>jogeshwari, mumbai, india - 400104</p>
+      <p>TUNISIA : AZUR CITY P7G4+C9 Ben Arous</p>
     </div>
     <div className="icons">
       <i className="fas fa-envelope" />
       <h3>email</h3>
-      <p>shaikhanas@gmail.com</p>
-      <p>anasbhai@gmail.com</p>
+      <p>wamaho@gmail.com</p>
+      
     </div>
     <div className="icons">
       <i className="fas fa-phone" />
       <h3>phone</h3>
-      <p>+123-456-7890</p>
-      <p>+111-222-3333</p>
+      <p>+216 52303647 </p>
+      <p>+216 37303647 </p>
     </div>
   </div>
   <div className="row">
@@ -56,12 +56,9 @@ function aboutus() {
       />
       <input type="submit" defaultValue="send message" className="btn" />
     </form>
-    <iframe
-      className="map"
-      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d30153.788252261566!2d72.82321484621745!3d19.141690214227783!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7b63aceef0c69%3A0x2aa80cf2287dfa3b!2sJogeshwari%20West%2C%20Mumbai%2C%20Maharashtra%20400047!5e0!3m2!1sen!2sin!4v1633431163028!5m2!1sen!2sin"
-      allowFullScreen=""
-      loading="lazy"
-    />
+    <iframe className="map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7435.469870560254!2d10.12012919230158!3d36.72970369538637!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12fd3a085c5e5683%3A0x40b9a9b1f68b7a29!2sTunis%20Ben%20Arous%20Azur%20City%2C%20Tunisia!5e0!3m2!1sen!2sus!4v1633444969600!5m2!1sen!2sus" allowFullScreen="" 
+    loading="lazy"></iframe>
+
   </div>
 </section>
 
