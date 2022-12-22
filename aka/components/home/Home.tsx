@@ -87,59 +87,7 @@ const Home = ({ }) => {
           </div>
         </div>
       </section>
-      {/* Banner Section End */}
-
-      {/* Instagram Section Begin */}
-      {/* <section className="instagram spad">
-        <div className="container">
-          <div className="row">
-            <div className="col-lg-8">
-              <div className="instagram__pic">
-                <div
-                  className="instagram__pic__item set-bg"
-                  style={{
-                    backgroundImage: "url(" + "https://res.cloudinary.com/dugewmeeh/image/upload/v1670925680/aka/hero/hero-1_olnrha.jpg" + ")",
-                    backgroundPosition: 'center',
-                    backgroundSize: 'cover',
-                    backgroundRepeat: 'no-repeat'
-                  }}
-                />
-                <div
-                  className="instagram__pic__item set-bg"
-                  data-setbg=""
-                />
-                <div
-                  className="instagram__pic__item set-bg"
-                  data-setbg="https://res.cloudinary.com/dqmhtibfm/image/upload/v1670924554/aka/insta/instagram-3_boktz7.jpg"
-                />
-                <div
-                  className="instagram__pic__item set-bg"
-                  data-setbg="/aka/img/instagram/instagram-4.jpg"
-                />
-                <div
-                  className="instagram__pic__item set-bg"
-                  data-setbg="/aka/img/instagram/instagram-5.jpg"
-                />
-                <div
-                  className="instagram__pic__item set-bg"
-                  data-setbg="/aka/img/instagram/instagram-6.jpg"
-                />
-              </div>
-            </div>
-            <div className="col-lg-4">
-              <div className="instagram__text">
-                <h2>Instagram</h2>
-                <p>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                  eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                </p>
-                <h3>#Male_Fashion</h3>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section> */}
-      {/* Instagram Section End */}
+      
 
 
     </>
