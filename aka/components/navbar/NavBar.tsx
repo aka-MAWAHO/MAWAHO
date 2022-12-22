@@ -18,7 +18,7 @@ const NavBar = () => {
   return (
 
  
-    <div className=''>
+    <div className='bg-primary text-white'>
 
       <div className="col-lg-6 col-md-5">
         <div className="header__top__right">
