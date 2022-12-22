@@ -1,20 +1,65 @@
-import React,{useState} from "react";
+import React,{useEffect, useState} from "react";
 import axios from "axios";
 
 function aboutus() {
+
+
+const [image,setIamge]=useState("")
 const [name,setName]=useState("")
 const [email,setEmail]=useState("")
-const [photo,setPhoto]=useState("")
-const [message,setMessege]=useState("")
-const Add=(add:any) =>{
-  axios.post(`http://localhost:5000/prod/prod`,add)
-}
+const [message,setMessage]=useState("")
+const [allFeedBacks,setAllFeedBacks]=useState([])
+console.log("data",allFeedBacks);
+const Add = (add:any) => {
+ 
+  axios
+    .post('http://localhost:8080/feed/addfeed', add)
+    .then((res) => {
+      console.log(res.data);
+    })
+    .catch((err) => {
+      console.error("hedhi err",err);
+    });
+};
+
+  // axios.get("http://localhost:8080/feed/getfeed").then(res => {
+  //                  setAllFeedBacks(res.data)
+                   
+  //                 })
+  
+  console.log("hii",allFeedBacks);
+
+    useEffect(() => {
+      axios.get("http://localhost:8080/feed/getfeed").then(res => {
+      console.log(res.data,'merue');
+
+      setAllFeedBacks(res.data)
+
+      })
+    }, [])
+const[file,setFile]=useState(null)
+const uploadd= ()=>{
+  const form = new FormData()
+    form.append('file',file)
+    form.append("upload_preset","abderahimt")
+    form.append("cloud_name","dqz0n291c")
+    fetch(" https://api.cloudinary.com/v1_1/dqz0n291c/image/upload ",{
+    method:"post",
+    body:form
+    })
+    .then((res)=>res.json())
+    .then((res)=>{setIamge(res.url)
+     console.log(res.url)})
+    .catch((err)=>{console.log(err);})
+  }
 
 
   return (
 <>
 
 <section id="about">
+  <br></br>
+  <div></div>
   <br></br>
   <div></div>
   <br></br>
@@ -105,11 +150,13 @@ const Add=(add:any) =>{
             <label htmlFor="name" className="">
                 Your name
               </label>
-              <input
+              <input 
+              className="form-control"
                 type="text"
                 id="name"
                 name="name"
-                className="form-control"
+                onChange={(e)=>{setName(e.target.value)}}
+               
               />
              
             </div>
@@ -121,11 +168,13 @@ const Add=(add:any) =>{
             <label htmlFor="email" className="">
                 Your email
               </label>
-              <input
+              <input 
+              className="form-control"
                 type="text"
                 id="email"
                 name="email"
-                className="form-control"
+              
+               onChange={(e)=>setEmail(e.target.value)}
               />
             
             </div>
@@ -145,8 +194,15 @@ const Add=(add:any) =>{
                 id="subject"
                 name="subject"
                 className="form-control"
+                onChange={(e)=>{setFile(e.target.files[0])}}
               />
-              
+               <div className="text-center text-md-left" >
+      <a
+          className="btn btn-primary"onClick={()=>uploadd()}
+        >
+          Upload
+        </a>
+        </div>
             </div>
           </div>
         </div>
@@ -164,6 +220,8 @@ const Add=(add:any) =>{
                 rows={2}
                 className="form-control md-textarea"
                 defaultValue={""}
+              
+                onChange={(e)=>setMessage(e.target.value)}
               />
           
             </div>
@@ -180,18 +238,20 @@ const Add=(add:any) =>{
   </div>
   </div>
   <br></br>
-  <div className="text-center text-md-left">
+  
+  <div className="d-flex justify-content-around">
+  <div className="text-center text-md-left" >
         <a
-          className="btn btn-primary"
-          
+          className="btn btn-primary"onClick={()=>{Add({name,image,email,message}) ;
+          setTimeout(() => {window.location.reload()},500);}}
         >
           Send
         </a>
+        <div></div>
       </div>
+        </div>
       <br></br>
 </section>
-{/*Section: Contact v.2*/}
-
 <div>
    
       
@@ -207,22 +267,23 @@ const Add=(add:any) =>{
  </div>
 </div>
 <div className="row text-center">
-
+ {allFeedBacks.slice(-3).reverse().map((e: any) =>{ return (
+  <>
  <div className="col-md-4 mb-5 mb-md-0">
-   <div className="d-flex justify-content-center mb-4">
+
+ <div className="d-flex justify-content-center mb-4">
      <img
-       src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(2).webp"
+       src={e.image}
        className="rounded-circle shadow-1-strong"
        width={150}
        height={150}
      />
    </div>
-   <h5 className="mb-3">Lisa Cudrow</h5>
-   <h6 className="text-primary mb-3">Graphic Designer</h6>
+   <h5 className="mb-3">{e.name}</h5>
+   <h6 className="text-primary mb-3">{e.email}</h6>
    <p className="px-xl-3">
      <i className="fas fa-quote-left pe-2" />
-     Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis
-     suscipit laboriosam, nisi ut aliquid commodi.
+    {e.message}
    </p>
    <ul className="list-unstyled d-flex justify-content-center mb-0">
      <li>
@@ -240,8 +301,11 @@ const Add=(add:any) =>{
      <li>
        <i className="fas fa-star fa-sm text-warning" />
      </li>
-   </ul>
- </div>
+   </ul> 
+   </div>
+   </>)})}
+  
+
 </div>
 </section>
  <iframe className="map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7435.469870560254!2d10.12012919230158!3d36.72970369538637!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12fd3a085c5e5683%3A0x40b9a9b1f68b7a29!2sTunis%20Ben%20Arous%20Azur%20City%2C%20Tunisia!5e0!3m2!1sen!2sus!4v1633444969600!5m2!1sen!2sus" allowFullScreen={false}

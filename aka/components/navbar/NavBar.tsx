@@ -18,7 +18,7 @@ const NavBar = () => {
   return (
 
  
-    <div className=''>
+    <div className='bg-primary text-white'>
 
       <div className="col-lg-6 col-md-5">
         <div className="header__top__right">
@@ -51,7 +51,7 @@ const NavBar = () => {
                 <li className="nav-item">
                   <a className="nav-link text-dark" href="/shop">Shop</a> </li>
                 <li className="nav-item">
-                  <a className="nav-link text-dark" href="/about">About Us</a> </li>
+                  <a className="nav-link text-dark" href="/aboutus">About Us</a> </li>
 
             </ul>
 </div>
@@ -66,8 +66,9 @@ const NavBar = () => {
               <button className="btn  text-dark" type="submit" title="LOGIN">
                 <img src='https://res.cloudinary.com/dn9qfvg2p/image/upload/c_scale,w_33/v1671035073/user_xzrvuk.png' />
               </button>
-              <button className="btn  text-dark" type="submit" title="WISH LIST" onClick={() => { location.href = "/wishlist" }}>
-                <img src='https://res.cloudinary.com/dn9qfvg2p/image/upload/c_scale,w_30/v1671038723/heart_y4chdf.png' />
+              <button className="btn  text-dark" type="submit" title="WISH LIST" onClick={() => {localStorage.clear()
+                axios.delete('http://localhost:8080/cart.detetall')}}>
+                <img src='https://res.cloudinary.com/dn9qfvg2p/image/upload/c_scale,w_40/v1671748308/exit_ass6vf.png' />
               </button></div>
 
 

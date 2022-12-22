@@ -5,7 +5,6 @@ const Feedback = mongoose.model(
   new mongoose.Schema({
     name:  {type:String},
     email: {type:String},
-    
     image:{type:String},
     message:{type:String}
   }))
